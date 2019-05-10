@@ -29,35 +29,54 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 - `assentos` - Number - cinco por padrão
 - `quantidadePessoas` - Number - zero por padrão
 */
-?
+  var carro = {
+    marca: "Jeep",
+    modelo: "Renegade",
+    placa: "INZ-5361",
+    ano: 2019,
+    cor: "vermelho",
+    qtdPortas: 4,
+    qtdAssentos: 5,
+    qtdPessoas: 0
+  };
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
 passado por parâmetro.
 */
-?
+  carro.mudaCor = function(cor) {
+    carro.cor = cor;
+  };
 
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
-?
+  carro.obterCor = function() {
+    return carro.cor;
+  };
 
 /*
 Crie um método chamado `obterModelo` que retorne o modelo do carro.
 */
-?
+  carro.obterModelo = function() {
+    return carro.modelo;
+  };
 
 /*
 Crie um método chamado `obterMarca` que retorne a marca do carro.
 */
-?
+  carro.obterMarca = function() {
+    return carro.marca;
+  };
 
 /*
 Crie um método chamado `obterMarcaModelo`, que retorne:
 "Esse carro é um [MARCA] [MODELO]"
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
-?
+  carro.obterMarcaModelo = function() {
+    return "Este carro é um " +  carro.marca + " " + carro.modelo;
+  };
 
 /*
 Crie um método que irá adicionar pessoas no carro. Esse método terá as
@@ -75,7 +94,32 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+  carro.adcionarPessoas = function(x) {
+    if (carro.qtdPessoas == carro.qtdAssentos) {
+        return "O carro já esta lotado!";
+    }  else {
+        if (carro.qtdPessoas + x > carro.qtdAssentos) {
+            var d = carro.qtdAssentos - carro.qtdPessoas;
+            var p = d == 1 ? " pessoa" : " pessoas";
+            return "Só cabem mais " + d + p;
+        } else {
+            carro.qtdPessoas += x;
+            return "Já temos " + carro.qtdPessoas + " pessoas no carro.";
+        }
+    }
+  };
+  
+  carro.removerPessoas = function(x) {
+    if (carro.qtdPessoas == 0) {
+        return "Não tem ninguem no carro";
+    } else {
+        if (x > (carro.qtdAssentos - carro.qtdPessoas)) {
+            return "Numero de pessoas maior que ";
+        } else {
+            qtdPessoas -= x;
+        }
+    }
+};
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -85,31 +129,31 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+  carro.cor // azul
 
 // Mude a cor do carro para vermelho.
-?
+  carro.cor = "vermelho"
 
 // E agora, qual a cor do carro?
-?
+  carro.cor // Vermelho
 
 // Mude a cor do carro para verde musgo.
-?
+  carro.cor = "Verde Musgo"
 
 // E agora, qual a cor do carro?
-?
+  carro.cor // Verde Musgo
 
 // Qual a marca e modelo do carro?
-?
+  carro.obetMarcaModelo() // Este carro é um Jeep Renegade
 
 // Adicione 2 pessoas no carro.
-?
+  carro.adciomarPesssoas(2) // Já temos 2 pessoas no carro
 
 // Adicione mais 4 pessoas no carro.
-?
+  carro.adciomarPesssoas(4) // Só cabem mais 3 pessoas
 
 // Faça o carro encher.
-?
+  carro.adcionarPessoas(carro.qtdAssentos - carro.atdPessoas);
 
 // Tire 4 pessoas do carro.
 ?
